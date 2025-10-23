@@ -55,17 +55,15 @@ def create_deck():
 
 def shuffle(deck:list[dict]):
     for i in range(1000):
-        i1 = random.randint(1, 52)
-        i2 = random.randint(1, 52)
-        print(i2)
-        print(i1)
-        deck = swap(deck, deck[i1], deck[i2])
+        i1 = random.randint(0, 51)
+        i2 = random.randint(0, 51)
+        deck = swap(deck, i1, i2)
+        print(i1, i2)
     return deck
 
 def swap(list, i1, i2):
-    temp = i1
-    list[i1] = list[i2]
-    list[i2] = list[temp]
+    list[i1], list[i2] = list[i2], list[i1]
     return list
 pack = create_deck()
+print(pack)
 pack = shuffle(pack)

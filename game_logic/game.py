@@ -1,3 +1,4 @@
+from utils import deck
 
 def create_player(name=None):
     if name is None:
@@ -12,8 +13,8 @@ def create_player(name=None):
 def init_game():
     p1 = create_player("Eli")
     p2 = create_player()
-    dec = creat_deck()
-    dec = shuffle(dec)
+    dec = deck.creat_deck()
+    dec = deck.shuffle(dec)
     p1["name"] = []
     p2["name"] = []
     len_dec = len(dec)
@@ -25,9 +26,9 @@ def init_game():
     game_dict = {"deck":dec, "player_1":p1, "player2":p2}
     return game_dict
 def play_round(p1:dict, p2:dict):
-    p1_card = p1["hand"][i]
-    p2_card = p2["hand"][i]
-    result = compare_cards(p1_card, p2_card2)
+    p1_card = p1["hand"][0]
+    p2_card = p2["hand"][0]
+    result = deck.compare_cards(p1_card, p2_card)
     if result == "p1":
         temp = p2["hand"].pop(0)
         p1["hand"].append(temp)
